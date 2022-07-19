@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block title %}
+Transfer
+{% endblock %}
+
+{% block main %}
+<form action="/transfer" method="post">
+    <div class="mb-3">
+        <select class="form-control mx-auto w-25" name="transfer_from">
+            <option disabled selected>Transfer from</option>
+            {% for account in accounts %}
+            <option value="{{ account.account_type }}">{{ account.account_type }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <select class="form-control mx-auto w-25" name="transfer_to">
+            <option disabled selected>Transfer to</option>
+            {% for account in accounts %}
+            <option value="{{ account.account_type }}">{{ account.account_type }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <input autocomplete="off" class="form-control mx-auto w-25" name="amount" placeholder="Amount to transfer"
+            min="1" type="number">
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-primary" type="submit">Transfer</button>
+    </div>
+</form>
+{% endblock %}

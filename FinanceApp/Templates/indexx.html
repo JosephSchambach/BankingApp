@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}
+Index
+{% endblock %}
+
+{% block main %}
+<h1>Welcome {{ username }}</h1>
+<h1>Accounts</h1>
+<table class="table tablestriped">
+    <thead>
+        <tr>
+            <th>Account</th>
+            <th></th>
+            <th></th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for account in accounts %}
+        <tr>
+            <td>{{ account.account }}</td>
+            <td></td>
+            <td></td>
+            <td>{{ usd(account.amounts) }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

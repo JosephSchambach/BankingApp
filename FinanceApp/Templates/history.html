@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block title %}
+History
+{% endblock %}
+
+{% block main %}
+<h1>History</h1>
+<table class="table tablestriped">
+    <thead>
+        <tr>
+            <th>Account</th>
+            <th>Type</th>
+            <th>Time</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for his in history %}
+        <tr>
+            <td>{{ his.account }}</td>
+            <td>{{ his.type }}</td>
+            <td>{{ his.time }}</td>
+            <td>{{ usd(his.amount) }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

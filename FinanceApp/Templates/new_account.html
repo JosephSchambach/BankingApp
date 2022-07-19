@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}
+New account
+{% endblock %}
+
+{% block main %}
+<form action="/new_account" method="post">
+    <div class="mb-3">
+        <select name="account_type" class="form-control mx-auto w-25">
+            <option disabled selected>Account type</option>
+            {% for type in types %}
+            <option value="{{ type }}">{{ type }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <input autocomplete="off" class="form-control mx-auto w-25" name="account_name" placeholder="Name e.g. vacation"
+            type="text">
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-primary">Create</button>
+    </div>
+</form>
+<p>Or <a href="/delete">delete<a> an existing account</p>
+{% endblock %}

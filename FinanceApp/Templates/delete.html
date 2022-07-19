@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block title %}
+Delete
+{% endblock %}
+
+{% block main %}
+<form action="/delete" method="post">
+    <div class="mb-3">
+        <select name="account" class="form-control mx-auto w-25">
+            <option disabled selected>Account type</option>
+            {% for type in types %}
+            <option value="{{ type.account_type }}">{{ type.account_type }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-primary">Delete</button>
+    </div>
+</form>
+{% endblock %}

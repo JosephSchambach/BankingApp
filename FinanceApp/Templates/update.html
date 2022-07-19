@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block title %}
+Update
+{% endblock %}
+
+{% block main %}
+<form action="/update" method="post">
+    <div class="mb-3">
+        <select name="account" autofocus class="form-control mx-auto w-25">
+            <option disabled selected>Account</option>
+            {% for type in type_of_account %}
+            <option value="{{ type.account_type }}">{{ type.account_type }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <select name="transaction" class="form-control mx-auto w-25">
+            <option disabled selected>Type</option>
+            {% for transaction in transactions %}
+            <option value="{{ transaction }}">{{ transaction }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <input autocomplete="off" class="form-control mx-auto w-25" min="1" name="amount" placeholder="Amount"
+            type="number">
+    </div>
+    <div class="mb-3">
+        <input autocomplete="off" class="form-control mx-auto w-25" name="description" placeholder="Description"
+            type="text">
+    </div>
+
+    <button class="btn btn-primary" type="submit">Update</button>
+</form>
+{% endblock %}
